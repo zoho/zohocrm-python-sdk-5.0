@@ -1,0 +1,4 @@
+from .GetContactRoleOfDeal import GetContactRoleOfDeal
+from .GetAllContactRolesOfDeal import GetAllContactRolesOfDeal
+from .RemoveContactRoleFromDeal import RemoveContactRoleFromDeal
+from .AddContactRoleToDeal import AddContactRoleToDeal
