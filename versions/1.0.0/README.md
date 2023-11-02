@@ -79,6 +79,29 @@ Python SDK is installable through **pip**. **pip** is a tool for dependency mana
     ```
 - The Python SDK will be installed in your client application.
 
+### Dependencies
+- Dependencies that should be included in your project
+  - install **urllib3**
+    ```sh
+    pip install urllib3
+    ```
+  - install **requests**
+    ```sh
+    pip install requests
+    ```
+  - install **python-dateutil**
+    ```sh
+    pip install python-dateutil
+    ```
+  - install **setuptools**
+    ```sh
+    pip install setuptools
+    ```
+  - install **mysql-connector-python**
+    ```sh
+    pip install mysql-connector-python
+    ```
+
 ## Token Persistence
 
 Token persistence refers to storing and utilizing the authentication tokens that are provided by Zoho. Token persistence enables the SDK to automatically refresh the access token after initialization using the refresh token without the need for user intervention. There are three ways provided by the SDK in which persistence can be utilized. They are DataBase Persistence, File Persistence, and Custom Persistence. Please note that the default method of token persistence provided by the Zoho CRM SDK is File persistence.
