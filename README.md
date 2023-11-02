@@ -62,4 +62,27 @@ You can include the SDK to your project using:
         ```
     - The Python SDK will be installed in your client application.
 
+### Dependencies
+- Dependencies that should be included in your project
+  - install **urllib3**
+    ```sh
+    pip install urllib3
+    ```
+  - install **requests**
+    ```sh
+    pip install requests
+    ```
+  - install **python-dateutil**
+    ```sh
+    pip install python-dateutil
+    ```
+  - install **setuptools**
+    ```sh
+    pip install setuptools
+    ```
+  - install **mysql-connector-python**
+    ```sh
+    pip install mysql-connector-python
+    ```
+
 For more details, kindly refer [here](/versions/1.0.0/README.md).
