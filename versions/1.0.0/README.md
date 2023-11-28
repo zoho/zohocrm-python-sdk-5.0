@@ -579,7 +579,7 @@ However, some specific operations have different expected objects, such as the f
     - **MassUpdate class** (for **application/json** responses)
     - **APIException class**
 
-  - The **ValidationHandler class** in **UserTerritories** API encomposses the following
+  - The **ValidationHandler class** in **UserTerritories** API encompasses the following
     - **ValidationWrapper class** (for **application/json** responses, holds the list of instances of **ValidationGroup class**)
     - **APIException class**
 
@@ -863,74 +863,67 @@ MultiThread.call()
 ## SDK Sample code
 
 ```python
-from datetime import datetime
 from zohocrmsdk.src.com.zoho.api.authenticator import OAuthToken
-from zohocrmsdk.src.com.zoho.crm.api import Initializer, ParameterMap, HeaderMap
+from zohocrmsdk.src.com.zoho.crm.api import Initializer, HeaderMap
 from zohocrmsdk.src.com.zoho.crm.api.dc import USDataCenter
-from zohocrmsdk.src.com.zoho.crm.api.record import RecordOperations, GetRecordsParam, GetRecordsHeader, ResponseWrapper, Record, APIException
+from zohocrmsdk.src.com.zoho.crm.api.record import RecordOperations, BodyWrapper, Record, Field, ActionWrapper, \
+    SuccessResponse, APIException
+from zohocrmsdk.src.com.zoho.crm.api.tags import Tag
 
 
-class GetRecord:
+class CreateRecords:
     @staticmethod
     def initialize():
         environment = USDataCenter.PRODUCTION()
         token = OAuthToken(client_id="clientID", client_secret="clientSecret", grant_token="grantToken")
         Initializer.initialize(environment, token)
-        
+
     @staticmethod
-    def get_records(module_api_name):
-        """
-        This method is used to get all the records of a module and print the response.
-        :param module_api_name: The API Name of the module to fetch records
-        """
-        """
-        example
-        module_api_name = 'Leads'
-        """
+    def create_records(module_api_name):
         record_operations = RecordOperations()
-        param_instance = ParameterMap()
-        param_instance.add(GetRecordsParam.page, 1)
-        param_instance.add(GetRecordsParam.per_page, 120)
-        field_names = ["Company", "Email"]
-        for field in field_names:
-            param_instance.add(GetRecordsParam.fields, field)
+        request = BodyWrapper()
+        records_list = []
+        record = Record()
+        record.add_field_value(Field.Leads.last_name(), 'Python SDK')
+        record.add_field_value(Field.Leads.first_name(), 'New')
+        record.add_field_value(Field.Leads.company(), 'Zoho')
+        record.add_field_value(Field.Leads.city(), 'City')
+        tags_list = []
+        tag = Tag()
+        tag.set_name("Test")
+        tags_list.append(tag)
+        record.set_tag(tags_list)
+        records_list.append(record)
+        request.set_data(records_list)
         header_instance = HeaderMap()
-        header_instance.add(GetRecordsHeader.if_modified_since,
-                            datetime.fromisoformat('2020-01-01T00:00:00+05:30'))
-        response = record_operations.get_records(module_api_name, param_instance, header_instance)
+        response = record_operations.create_records(module_api_name, request, header_instance)
         if response is not None:
             print('Status Code: ' + str(response.get_status_code()))
-            if response.get_status_code() in [204, 304]:
-                print('No Content' if response.get_status_code() == 204 else 'Not Modified')
-                return
             response_object = response.get_object()
             if response_object is not None:
-                if isinstance(response_object, ResponseWrapper):
-                    record_list = response_object.get_data()
-                    for record in record_list:
-                        print("Record ID: " + str(record.get_id()))
-                        created_by = record.get_created_by()
-                        if created_by is not None:
-                            print("Record Created By - Name: " + created_by.get_name())
-                            print("Record Created By - ID: " + str(created_by.get_id()))
-                            print("Record Created By - Email: " + created_by.get_email())
-                        print("Record CreatedTime: " + str(record.get_created_time()))
-                        if record.get_modified_time() is not None:
-                            print("Record ModifiedTime: " + str(record.get_modified_time()))
-                        modified_by = record.get_modified_by()
-                        if modified_by is not None:
-                            print("Record Modified By - Name: " + modified_by.get_name())
-                            print("Record Modified By - ID: " + str(modified_by.get_id()))
-                            print("Record Modified By - Email: " + modified_by.get_email())
-                        tags = record.get_tag()
-                        if tags is not None:
-                            for tag in tags:
-                                print("Record Tag Name: " + tag.get_name())
-                                print("Record Tag ID: " + str(tag.get_id()))
-                        print("Record Field Value: " + str(record.get_key_value('Last_Name')))
-                        print('Record KeyValues: ')
-                        for key, value in record.get_key_values().items():
-                            print(key + " : " + str(value))
+                if isinstance(response_object, ActionWrapper):
+                    action_response_list = response_object.get_data()
+                    for action_response in action_response_list:
+                        if isinstance(action_response, SuccessResponse):
+                            print("Status: " +
+                                  action_response.get_status().get_value())
+                            print("Code: " + action_response.get_code().get_value())
+                            print("Details")
+                            details = action_response.get_details()
+                            for key, value in details.items():
+                                print(key + ' : ' + str(value))
+                            print("Message: " +
+                                  action_response.get_message().get_value())
+                        elif isinstance(action_response, APIException):
+                            print("Status: " +
+                                  action_response.get_status().get_value())
+                            print("Code: " + action_response.get_code().get_value())
+                            print("Details")
+                            details = action_response.get_details()
+                            for key, value in details.items():
+                                print(key + ' : ' + str(value))
+                            print("Message: " +
+                                  action_response.get_message().get_value())
                 elif isinstance(response_object, APIException):
                     print("Status: " + response_object.get_status().get_value())
                     print("Code: " + response_object.get_code().get_value())
@@ -940,7 +933,8 @@ class GetRecord:
                         print(key + ' : ' + str(value))
                     print("Message: " + response_object.get_message().get_value())
 
-            
-GetRecord.initialize()
-GetRecord.get_records("Leads")
+
+module_api_name = "Leads"
+CreateRecords.initialize()
+CreateRecords.create_records(module_api_name)
 ```
