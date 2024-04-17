@@ -39,7 +39,7 @@ class UpdateCases(object):
         accountName = Record()
         accountName.add_key_value("id", 3245633789213)
         record1.add_field_value(Field.Cases.account_name(), accountName)
-        record1.add_field_value(Field.Cases.email(), "abc@gmail.com")
+        record1.add_field_value(Field.Cases.email(), "abc@zoho.com")
         record1.add_field_value(Field.Cases.priority(), Choice("Low"))
         record1.add_field_value(Field.Cases.case_reason(), Choice("New Problem"))
         dealName = Record()

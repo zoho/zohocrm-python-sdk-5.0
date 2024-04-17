@@ -73,7 +73,7 @@ class CreateRecords:
         file_details.append(file_detail)
         record.add_key_value('File_Upload', file_details)
         record_owner = MinifiedUser()
-        record_owner.set_email("abc@gmail.com")
+        record_owner.set_email("abc@zoho.com")
         record.add_key_value("Owner", record_owner)
         # Used when GDPR is enabled
         data_consent = Consent()
@@ -169,7 +169,7 @@ class CreateRecords:
         record.add_field_value(Field.Events.start_datetime(), start_date_time)
         participants_list = []
         participant = Participants()
-        participant.set_participant('test@gmail.com')
+        participant.set_participant('test@zoho.com')
         participant.set_type('email')
         participants_list.append(participant)
         participant = Participants()
@@ -208,7 +208,7 @@ class CreateRecords:
         pricing_details_list.append(pricing_detail)
         record.add_field_value(
             Field.Price_Books.pricing_details(), pricing_details_list)
-        record.add_key_value("Email", "abc@gmail.com")
+        record.add_key_value("Email", "abc@zoho.com")
         record.add_field_value(
             Field.Price_Books.description(), "My Price Book")
         record.add_field_value(

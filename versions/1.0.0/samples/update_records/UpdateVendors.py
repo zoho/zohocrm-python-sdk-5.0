@@ -26,7 +26,7 @@ class UpdateVendors(object):
         record1.set_id(3123424123123)
         record1.add_field_value(Field.Vendors.vendor_name(), "vendor_name")
         record1.add_field_value(Field.Vendors.phone, "12343213")
-        record1.add_field_value(Field.Vendors.email(), "abc@gmail.com")
+        record1.add_field_value(Field.Vendors.email(), "abc@zoho.com")
         record1.add_field_value(Field.Vendors.website(), None)
         record1.add_field_value(Field.Vendors.gl_account(), Choice("Sales-Software"))
         record1.add_field_value(Field.Vendors.category(), None)

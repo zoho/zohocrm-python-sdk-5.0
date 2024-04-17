@@ -23,22 +23,22 @@ class Associate(object):
         for i in range(1):
             associate_email = AssociateEmail()
             from1 = From()
-            from1.set_email('abc@gmail.com')
+            from1.set_email('abc@zoho.com')
             from1.set_user_name("username")
             associate_email.set_from(from1)
             tos = []
             to = To()
-            to.set_email('abc1@gmail.com')
+            to.set_email('abc1@zoho.com')
             to.set_user_name("username1")
             tos.append(to)
             tos1 = []
             to1 = To()
-            to1.set_email("abc2@gmail.com")
+            to1.set_email("abc2@zoho.com")
             to1.set_user_name("user_name1")
             tos1.append(to1)
             tos2 = []
             to2 = To()
-            to2.set_email("abc3@gmail.com")
+            to2.set_email("abc3@zoho.com")
             to2.set_user_name("user_name2")
             tos2.append(to2)
             associate_email.set_to(tos)

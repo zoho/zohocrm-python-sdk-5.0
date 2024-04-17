@@ -57,7 +57,7 @@ class UpdateRecordUsingExternalId:
         file_details.append(file_detail)
         record.add_key_value('File_Upload', file_details)
         record_owner = MinifiedUser()
-        record_owner.set_email("abc@gmail.com")
+        record_owner.set_email("abc@zoho.com")
         record.add_key_value("Owner", record_owner)
         # Used when GDPR is enabled
         data_consent = Consent()
