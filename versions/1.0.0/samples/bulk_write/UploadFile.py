@@ -23,7 +23,7 @@ class UploadFile(object):
         """
         """
         example
-        org_id = "673573045"
+        org_id = "6735"
         absolute_file_path = "/Users/user_name/Documents/Leads.zip"
         """
         bulk_write_operations = BulkWriteOperations()

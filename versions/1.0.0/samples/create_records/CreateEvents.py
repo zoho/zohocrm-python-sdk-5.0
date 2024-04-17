@@ -27,7 +27,7 @@ class CreateEvents(object):
         record1.add_field_value(Field.Events.start_datetime(), datetime.datetime(2023, 10, 11, 10, 10, 10))
         participants = []
         participant1 = Participants()
-        participant1.set_email("abc@gmail.com")
+        participant1.set_email("abc@zoho.com")
         participant1.set_type("email")
         participant1.set_id(4402481056002)
         participants.append(participant1)

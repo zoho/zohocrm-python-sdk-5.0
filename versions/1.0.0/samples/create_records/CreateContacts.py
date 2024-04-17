@@ -24,7 +24,7 @@ class CreateContacts(object):
         records = []
         record1 = Record()
         record1.add_field_value(Field.Contacts.last_name(), "Last Name")
-        record1.add_field_value(Field.Contacts.email(), "abc1@gmail.com")
+        record1.add_field_value(Field.Contacts.email(), "abc1@zoho.com")
         accountname = Record()
         accountname.set_id(440248001538033)
         record1.add_field_value(Field.Contacts.account_name(), accountname)
@@ -41,7 +41,7 @@ class CreateContacts(object):
         vendorName.set_id(440248001392120)
         record1.add_field_value(Field.Contacts.vendor_name(), vendorName)
         record1.add_field_value(Field.Contacts.email_opt_out(), False)
-        record1.add_field_value(Field.Contacts.secondary_email(), "abc2@gmail.com")
+        record1.add_field_value(Field.Contacts.secondary_email(), "abc2@zoho.com")
         contact = Record()
         contact.set_id(440248001509050)
         record1.add_field_value(Field.Contacts.reporting_to(), contact)
