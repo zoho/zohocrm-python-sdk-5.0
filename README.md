@@ -53,10 +53,10 @@ License
     - DeassociateTerritoryUsersParam
     - DeleteVariablesParam
   - Support for the following new APIs. 
-        - MailMerge:
-            - [Send Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/send-mail-merge.html)
-            - [Sign Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/sign-mail-merge.html)
-            - [Download Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/download-mail-merge.html)
+      - MailMerge:
+        - [Send Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/send-mail-merge.html)
+        - [Sign Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/sign-mail-merge.html)
+        - [Download Mail Merge](https://www.zoho.com/crm/developer/docs/api/v5/download-mail-merge.html)
 
 - [1.0.0](/versions/1.0.0/README.md)
 
