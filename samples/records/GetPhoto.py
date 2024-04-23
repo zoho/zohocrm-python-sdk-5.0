@@ -60,6 +60,6 @@ class GetPhoto:
 
 module_api_name = "Leads"
 record_id = 440248001507174
-destination_foler = "/users/sample/file"
+destination_folder = "/users/sample/file"
 GetPhoto.initialize()
-GetPhoto.get_photo(module_api_name, record_id, destination_foler)
+GetPhoto.get_photo(module_api_name, record_id, destination_folder)
