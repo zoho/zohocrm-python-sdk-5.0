@@ -30,7 +30,7 @@ License
   - Added new file_names field in BulkWrite Resource class.
   - Org time_zone field datatype changed(TimeZone to str).
   - Support move_attachments_to field in the LeadConverter class.
-  - Update RecordLockingOperations class constructor and methods.
+  - The constructor and methods in the RecordLockingOperations class have been updated to include the 'record_id' and 'module_name' parameters in constructor instead of being passed as method paramters.
   - ScoringRules Signal namespace field datatype changed(Choice<str> to str).
   - ShiftHours timezone field datatype changed (TimeZone to str).
   - Tags RecordActionWrapper locked_count field datatype changed(bool to str).
